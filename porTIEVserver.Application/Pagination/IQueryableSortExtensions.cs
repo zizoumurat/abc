@@ -12,7 +12,7 @@ public static class IQueryableSortExtensions
     {
         if (multiSorts == null || multiOrders == null || multiSorts.Count == 0 || multiOrders.Count == 0)
         {
-            return query.OrderByDescending(GetPropertyExpression<T>("Id"));
+            return query.OrderByDescending(GetPropertyExpression<T>("Ref"));
         }
 
         IOrderedQueryable<T> orderedQuery = null;

@@ -14,7 +14,7 @@ namespace porTIEVserver.WebAPI.Controllers.ERP.CRM
         {
         }
         [HttpGet]
-        public async Task<IActionResult> GetAll(GetAllContactsQuery request, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAll([FromQuery] GetAllContactsQuery request, CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(request, cancellationToken);
             return StatusCode(response.StatusCode, response);

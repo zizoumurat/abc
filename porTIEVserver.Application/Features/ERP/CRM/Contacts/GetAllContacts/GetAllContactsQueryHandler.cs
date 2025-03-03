@@ -7,6 +7,7 @@ using porTIEVserver.Application.Pagination;
 using porTIEVserver.Application.Services;
 using porTIEVserver.Domain.Dtos;
 using porTIEVserver.Domain.Entities.ERP.CRM;
+using porTIEVserver.Domain.Pagination;
 using porTIEVserver.Domain.Repositories.ERP.CRM;
 using TS.Result;
 
@@ -39,11 +40,13 @@ namespace porTIEVserver.Application.Features.ERP.CRM.Contacts.GetAllContacts
 
             query = query.AsQueryable();
 
+            var pagination = request.pagination ?? new PageRequest();
+
             var count = await query.CountAsync();
             var items = await query
-                .Skip((request.pagination.Page - 1) * request.pagination.PageSize)
-                .Take(request.pagination.PageSize)
-                .MultiSort(request.pagination.sortByMultiName, request.pagination.sortByMultiOrder)
+                .Skip((pagination.Page - 1) * pagination.PageSize)
+                .Take(pagination.PageSize)
+                .MultiSort(pagination.sortByMultiName, pagination.sortByMultiOrder)
                 .ProjectTo<ContactListDto>(_mapper.ConfigurationProvider)
             .ToListAsync(cancellationToken);
 

@@ -61,6 +61,7 @@ using porTIEVserver.Application.Features.eTraining.Partners.CreatePartner;
 using porTIEVserver.Application.Features.eTraining.Partners.UpdatePartner;
 using porTIEVserver.Application.Features.eTraining.Statues.CreateStatus;
 using porTIEVserver.Application.Features.eTraining.Statues.UpdateStatus;
+using porTIEVserver.Domain.Dtos;
 using porTIEVserver.Domain.Entities.Admin.AppSets;
 using porTIEVserver.Domain.Entities.Admin.ToolSets;
 using porTIEVserver.Domain.Entities.eBizService.eBizService;
@@ -161,6 +162,7 @@ namespace porTIEVserver.Application.Mapping
             #region CRM Contact
             CreateMap<CreateContactCommand  , Contact>();
             CreateMap<UpdateContactCommand  , Contact>();
+            CreateMap<Contact, ContactListDto>();
             #endregion CRM Contact
             #region CRM CrmAction
             CreateMap<CreateCrmActionCommand, CrmAction>();

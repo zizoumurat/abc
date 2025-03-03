@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\VS2022\api.ideanostra.com.tr</_PublishTargetUrl>
+    <History>True|2025-02-04T21:07:14.6922911Z||;True|2025-02-04T21:51:33.8971064+03:00||;True|2025-02-04T21:01:00.4872046+03:00||;True|2025-02-03T21:11:57.4996011+03:00||;True|2025-01-17T15:59:53.8979403+03:00||;True|2024-08-22T14:24:52.5080285+03:00||;True|2024-07-26T10:01:51.5607364+03:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

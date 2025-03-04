@@ -12,15 +12,15 @@ using porTIEVserver.Infrastructure.Context;
 namespace porTIEVserver.Infrastructure.Migrations.FirmDb
 {
     [DbContext(typeof(FirmDbContext))]
-    [Migration("20250203001522_mg1")]
-    partial class mg1
+    [Migration("20250303235335_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.6")
+                .HasAnnotation("ProductVersion", "8.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -36,7 +36,7 @@ namespace porTIEVserver.Infrastructure.Migrations.FirmDb
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<string>("CityRef")
+                    b.Property<string>("CityCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -47,7 +47,7 @@ namespace porTIEVserver.Infrastructure.Migrations.FirmDb
                     b.Property<int>("ContactType")
                         .HasColumnType("int");
 
-                    b.Property<string>("CountryRef")
+                    b.Property<string>("CountryCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

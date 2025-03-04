@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace porTIEVserver.Infrastructure.Migrations.FirmDb
 {
     /// <inheritdoc />
-    public partial class mg1 : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -274,8 +274,8 @@ namespace porTIEVserver.Infrastructure.Migrations.FirmDb
                     ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     InchargeRef = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FullAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CityRef = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CountryRef = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CityCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CountryCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "varchar(50)", nullable: false),
                     Mobile = table.Column<string>(type: "varchar(50)", nullable: false),
                     Email = table.Column<string>(type: "varchar(100)", nullable: false),

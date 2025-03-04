@@ -4,6 +4,8 @@ using porTIEVserver.Application.Features.ERP.CRM.Contacts.CreateContact;
 using porTIEVserver.Application.Features.ERP.CRM.Contacts.DeleteContact;
 using porTIEVserver.Application.Features.ERP.CRM.Contacts.GetAllContacts;
 using porTIEVserver.Application.Features.ERP.CRM.Contacts.UpdateContact;
+using porTIEVserver.Domain.Dtos;
+using porTIEVserver.Domain.Pagination;
 using porTIEVserver.WebAPI.Abstractions;
 
 namespace porTIEVserver.WebAPI.Controllers.ERP.CRM
@@ -14,9 +16,10 @@ namespace porTIEVserver.WebAPI.Controllers.ERP.CRM
         {
         }
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery] GetAllContactsQuery request, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAll([FromQuery] ContactFilterDto filter, [FromQuery] PageRequest pagination, CancellationToken cancellationToken)
         {
-            var response = await _mediator.Send(request, cancellationToken);
+            var query = new GetAllContactsQuery(filter, pagination);
+            var response = await _mediator.Send(query, cancellationToken);
             return StatusCode(response.StatusCode, response);
         }
         [HttpPost]
@@ -31,8 +34,9 @@ namespace porTIEVserver.WebAPI.Controllers.ERP.CRM
             var response = await _mediator.Send(request, cancellationToken);
             return StatusCode(response.StatusCode, response);
         }
-        [HttpDelete]
-        public async Task<IActionResult> Delete(DeleteContactCommand request, CancellationToken cancellationToken)
+
+        [HttpDelete("{ref}")]
+        public async Task<IActionResult> Delete([FromRoute] DeleteContactCommand request, CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(request, cancellationToken);
             return StatusCode(response.StatusCode, response);

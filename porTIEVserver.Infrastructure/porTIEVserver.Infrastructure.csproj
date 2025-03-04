@@ -35,8 +35,4 @@
     <ProjectReference Include="..\porTIEVserver.Domain\porTIEVserver.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\FirmDb\" />
-  </ItemGroup>
-
 </Project>

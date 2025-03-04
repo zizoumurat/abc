@@ -2,9 +2,10 @@
 
 namespace porTIEVserver.Domain.Dtos;
 
-public sealed record ContactFilterDto(ContactTypeEnum? ContactType, string Code, string FirstName, string LastName, string Phone, string CityRef);
+public sealed record ContactFilterDto(string? Code, string? FirstName, string? LastName, string? Phone, string? CityCode, ContactTypeEnum? ContactType);
 public sealed record ContactListDto
 {
+    public int Ref { get; set; }
     public required ContactTypeEnum ContactType { get; init; }
     public string Code { get; init; } = string.Empty;
     public string FirstName { get; init; } = string.Empty;

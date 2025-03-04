@@ -26,17 +26,6 @@ namespace porTIEVserver.Application.Features.ERP.CRM.Contacts.GetAllContacts
             //contacts = cacheService.Get<List<Contact>>(cacheName);
 
             var query = contactRepository.GetAll();
-            if (request.filter != null)
-            {
-                query = query.Where(x =>
-                    (request.filter.ContactType != null || x.ContactType == request.filter.ContactType) &&
-                    (string.IsNullOrEmpty(request.filter.FirstName) || x.FirstName.ToLower().Contains(request.filter.FirstName.ToLower())) &&
-                    (string.IsNullOrEmpty(request.filter.LastName) || x.LastName.ToLower().Contains(request.filter.LastName.ToLower())) &&
-                    (string.IsNullOrEmpty(request.filter.Code) || x.Code.ToLower().Contains(request.filter.Code.ToLower())) &&
-                    (string.IsNullOrEmpty(request.filter.CityRef) || x.CityRef.ToLower().Contains(request.filter.CityRef.ToLower())) &&
-                    (string.IsNullOrEmpty(request.filter.Phone) || x.Phone.ToLower().Contains(request.filter.Phone.ToLower()))
-                );
-            }
 
             query = query.AsQueryable();
 
@@ -52,7 +41,7 @@ namespace porTIEVserver.Application.Features.ERP.CRM.Contacts.GetAllContacts
 
             // cacheService.Set(cacheName, contacts);
 
-            return new PaginatedList<ContactListDto>(items, count, request.pagination.Page, request.pagination.PageSize);
+            return new PaginatedList<ContactListDto>(items, count, pagination.Page, pagination.PageSize);
         }
     }
 }

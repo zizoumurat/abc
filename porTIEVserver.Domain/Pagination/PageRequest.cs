@@ -8,7 +8,7 @@ public record PageRequest
         get { return _page + 1; }
         set { _page = value; }
     }
-    public int PageSize { get; set; } = 10;
+    public int PageSize { get; set; } = 1;
     public List<string>? sortByMultiName { get; set; }
     public List<int>? sortByMultiOrder { get; set; }
 }

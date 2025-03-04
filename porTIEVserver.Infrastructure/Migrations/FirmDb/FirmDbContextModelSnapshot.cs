@@ -17,7 +17,7 @@ namespace porTIEVserver.Infrastructure.Migrations.FirmDb
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.6")
+                .HasAnnotation("ProductVersion", "8.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -33,7 +33,7 @@ namespace porTIEVserver.Infrastructure.Migrations.FirmDb
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<string>("CityRef")
+                    b.Property<string>("CityCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -44,7 +44,7 @@ namespace porTIEVserver.Infrastructure.Migrations.FirmDb
                     b.Property<int>("ContactType")
                         .HasColumnType("int");
 
-                    b.Property<string>("CountryRef")
+                    b.Property<string>("CountryCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
